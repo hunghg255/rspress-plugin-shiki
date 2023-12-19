@@ -44,7 +44,7 @@ div[class*='language-'] code .diff.remove {
   background-color: rgba(244, 63, 94, 0.16);
 }
 
-.diff.add::before {
+.diff.add::after {
   content: '+';
   position: absolute;
   left: 10px;
@@ -85,3 +85,17 @@ div[class*='language-'] code .diff.remove {
   opacity: 1;
 }
 
+.has-line-number code {
+  counter-reset: step;
+  counter-increment: step 0;
+}
+
+.has-line-number code .line-number::before {
+  content: counter(step);
+  counter-increment: step;
+  width: 15px;
+  margin-right: 15px;
+  display: inline-block;
+  text-align: right;
+  color: rgba(115,138,148,.4)
+}

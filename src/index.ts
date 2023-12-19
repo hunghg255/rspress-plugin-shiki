@@ -3,7 +3,7 @@ import type { RspressPlugin } from '@rspress/shared';
 import {  Lang } from 'shiki';
 import { DEFAULT_HIGHLIGHT_LANGUAGES } from '@rspress/shared';
 import { rehypePluginShiki } from './rehypePlugin';
-import { getHighlighter, createTransformerDiff, createTransformerFocus, createTransformerHighlight, createTransformerErrorLevel } from 'plugin-shiki-transformers'
+import { getHighlighter, ITransformer, createTransformerDiff, createTransformerFocus, createTransformerHighlight, createTransformerErrorLevel, createTransformerLineNumber  } from 'plugin-shiki-transformers'
 interface PluginShikiOptions {
   /**
    * The theme of shiki.
@@ -13,6 +13,16 @@ interface PluginShikiOptions {
    * The languages to highlight.
    */
   langs?: Lang[];
+
+  transformers?: ITransformer[];
+}
+
+export {
+  createTransformerDiff,
+  createTransformerFocus,
+  createTransformerHighlight,
+  createTransformerErrorLevel,
+  createTransformerLineNumber
 }
 
 /**
@@ -37,12 +47,7 @@ export function pluginShiki(options?: PluginShikiOptions): RspressPlugin {
           ),
           ...langs,
         ] as Lang[],
-        transformers: [
-          createTransformerDiff(),
-          createTransformerFocus(),
-          createTransformerHighlight(),
-          createTransformerErrorLevel(),
-        ],
+        transformers: options?.transformers,
       });
 
       config.markdown.rehypePlugins.push([rehypePluginShiki, { highlighter }]);
