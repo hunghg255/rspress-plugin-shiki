@@ -1,0 +1,87 @@
+/**
+ * Custom shiki code block theme
+ * reference: https://github.com/shikijs/shiki/blob/main/docs/themes.md
+ * -------------------------------------------------------------------------- */
+
+ :root {
+  --shiki-color-text: #414141;
+  --shiki-color-background: transparent;
+  --shiki-token-constant: #1976d2;
+  --shiki-token-string: #31a94d;
+  --shiki-token-comment: rgb(182, 180, 180);
+  --shiki-token-keyword: #cf2727;
+  --shiki-token-parameter: #f59403;
+  --shiki-token-function: #7041c8;
+  --shiki-token-string-expression: #218438;
+  --shiki-token-punctuation: #242323;
+  --shiki-token-link: #22863a;
+}
+
+.dark {
+  --shiki-color-text: #cac7c7;
+  --shiki-token-constant: #6fb0fa;
+  --shiki-token-string: #f9a86e;
+  --shiki-token-comment: #6a727b;
+  --shiki-token-keyword: #f47481;
+  --shiki-token-parameter: #ff9800;
+  --shiki-token-function: #ae8eeb;
+  --shiki-token-string-expression: #4fb74d;
+  --shiki-token-punctuation: #bbbbbb;
+  --shiki-token-link: #f9a76d;
+}
+
+.diff,
+.code-line-highlighted {
+  transition: background-color 0.5s;
+  margin: 0 -20px;
+  padding: 0 20px;
+  width: calc(100% + 40px);
+  display: inline-block;
+  position: relative;
+}
+
+div[class*='language-'] code .diff.remove {
+  background-color: rgba(244, 63, 94, 0.16);
+}
+
+.diff.add::before {
+  content: '+';
+  position: absolute;
+  left: 10px;
+  color: #3dd68c;
+}
+
+.diff.remove::after {
+  content: '-';
+  position: absolute;
+  left: 10px;
+  color: #cb7676;
+}
+
+.has-diff div[class*='language-'] .diff.add {
+  background-color: rgba(16, 185, 129, 0.16);
+}
+
+.has-highlight div[class*='language-'] .line.highlighted {
+  background-color: rgba(101, 117, 133, 0.16);
+}
+
+.has-highlight div[class*='language-'] .line.highlighted.error {
+  background-color: rgba(244, 63, 94, 0.16);
+}
+
+.has-highlight div[class*='language-'] .line.highlighted.warning {
+  background-color: rgba(234, 179, 8, 0.16);
+}
+
+.has-focused div[class*='language-'] .line:not(.focused) {
+  filter: blur(0.095rem);
+  opacity: 0.4;
+  transition: filter 0.35s, opacity 0.35s;
+}
+
+.has-focused:hover div[class*='language-'] .line:not(.focused) {
+  filter: blur(0);
+  opacity: 1;
+}
+
