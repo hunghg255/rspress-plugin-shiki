@@ -2,7 +2,7 @@
 
 > Shiki plugin for rspress
 
-[Documentation]([https://rspress.dev/plugin/official-plugins/shiki](https://rspress-plugin-shiki.surge.sh/plugin/index.html))
+[Documentation](https://rspress-plugin-shiki.surge.sh/plugin/index.html)
 
 ## Install
 
