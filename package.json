@@ -1,6 +1,6 @@
 {
   "name": "rspress-plugin-shiki",
-  "version": "1.8.9",
+  "version": "1.8.10",
   "description": "A plugin for rspress to record the last updated time of the doc.",
   "bugs": "https://github.com/web-infra-dev/rspress/issues",
   "repository": {
@@ -43,7 +43,7 @@
     "@types/node": "^18.11.17",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "plugin-shiki-transformers": "^0.0.6",
+    "plugin-shiki-transformers": "^0.0.7",
     "react": "^18.2.0",
     "typescript": "^5",
     "unified": "10.1.2",
